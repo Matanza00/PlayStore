@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/* FirstPass design tokens.
+   The subject is an inspection before a checkpoint, so the palette borrows
+   from high-visibility signage: a cool grey ground, deep navy ink, and one
+   safety yellow that is only spent on the action and the verdict sticker. */
+@theme inline {
+  --color-ground: #edf0f4;
+  --color-surface: #ffffff;
+  --color-ink: #101936;
+  --color-muted: #566079;
+  --color-line: #d3d9e2;
+  --color-hivis: #ffd21f;
+  --color-hivis-deep: #e9b800;
+  --color-stop: #c8102e;
+  --color-stop-tint: #fde8ec;
+  --color-caution: #9a5b00;
+  --color-caution-tint: #fff3d6;
+  --color-go: #0a7350;
+  --color-go-tint: #dff5ec;
+  --font-display: var(--font-bricolage), "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--font-figtree), "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* The one loud motif: hazard tape. Used on the verdict sticker and the
+   landing page, nowhere else. */
+.tape {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-hivis) 0 14px,
+    var(--color-ink) 14px 28px
+  );
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  cursor: pointer;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.12s ease;
+}
+.btn:hover {
+  box-shadow: 0 3px 0 var(--color-ink);
+  transform: translateY(-2px);
+}
+.btn:active {
+  box-shadow: none;
+  transform: none;
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+.btn-primary {
+  background: var(--color-hivis);
+}
+.btn-primary:hover {
+  background: var(--color-hivis-deep);
+}
+.btn-quiet {
+  border-color: transparent;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding-inline: 0.5rem;
+}
+.btn-quiet:hover {
+  box-shadow: none;
+  transform: none;
+  background: rgb(16 25 54 / 0.06);
+}
+.btn-small {
+  min-height: 2.2rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+/* Form */
+.field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+.field-help {
+  color: var(--color-muted);
+  margin-top: 0.3rem;
+  max-width: 62ch;
+}
+.input {
+  width: 100%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-line);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  color: inherit;
+}
+.input:hover {
+  border-color: var(--color-muted);
+}
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 3px var(--color-hivis);
+}
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  background: var(--color-surface);
+  border: 2px solid var(--color-line);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+}
+.option:hover {
+  border-color: var(--color-muted);
+}
+.option:has(input:checked) {
+  border-color: var(--color-ink);
+  background: #fffbe6;
+}
+.option:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px var(--color-hivis);
+  border-color: var(--color-ink);
+}
+.option input {
+  appearance: none;
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-surface);
+  display: grid;
+  place-content: center;
+}
+.option input[type="radio"] {
+  border-radius: 50%;
+}
+.option input[type="checkbox"] {
+  border-radius: 5px;
+}
+.option input::after {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--color-ink);
+  transform: scale(0);
+  transition: transform 0.1s ease;
+}
+.option input[type="radio"]::after {
+  border-radius: 50%;
+}
+.option input[type="checkbox"]::after {
+  border-radius: 2px;
+}
+.option input:checked::after {
+  transform: scale(1);
+}
+.option input:focus-visible {
+  outline: none;
+}
+
+/* Panels */
+.panel {
+  background: var(--color-surface);
+  border: 2px solid var(--color-line);
+  border-radius: 18px;
+}
+.prompt-box {
+  background: var(--color-ink);
+  color: #e9edf7;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tag-blocker {
+  background: var(--color-stop-tint);
+  color: var(--color-stop);
+}
+.tag-warn {
+  background: var(--color-caution-tint);
+  color: var(--color-caution);
+}
+.tag-tip {
+  background: var(--color-go-tint);
+  color: var(--color-go);
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+.link:hover {
+  text-decoration-color: var(--color-hivis-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
