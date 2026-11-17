@@ -70,4 +70,10 @@ FirstPass is open to contributions from anyone, with or without code. Google's r
 
 ## Licence
 
-[MIT](LICENSE). Copyright (c) 2026 Usman Nadeem.
+The code is released under the [PolyForm Noncommercial License 1.0.0](LICENSE). Copyright 2026 Usman Nadeem.
+
+- **You can** read it, learn from it, run it for personal, study, research or hobby use, and send improvements.
+- **You need permission to** sell it, offer it to others as a paid service or subscription, put it inside a product you sell, or use it for any other commercial purpose.
+- **Commercial licensing:** if you want to do any of that, get in touch first through [fp.nxcsol.com/feedback](https://fp.nxcsol.com/feedback?from=licensing) or support@nxcsol.com.
+
+This is source-available rather than open source in the strict sense, because commercial use is restricted. A plain-words summary is at [fp.nxcsol.com/licence](https://fp.nxcsol.com/licence); the licence text is what counts.

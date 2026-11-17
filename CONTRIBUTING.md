@@ -75,4 +75,12 @@ If you find a security problem, please don't open a public issue. Email **suppor
 
 ## Licence
 
-FirstPass is released under the [MIT licence](LICENSE). By contributing, you agree that your contribution is licensed under the same terms, and that you have the right to contribute it.
+FirstPass is released under the [PolyForm Noncommercial License 1.0.0](LICENSE): free to read, run and improve for noncommercial use, and not free to sell or offer as a service. For commercial use, get in touch through the [feedback form](https://fp.nxcsol.com/feedback?from=licensing) or support@nxcsol.com.
+
+By contributing, you agree that:
+
+- your contribution is licensed under the same terms;
+- you have the right to contribute it; and
+- the project owner may also license your contribution, including commercially, as part of FirstPass.
+
+If you are not comfortable with that last point, please don't contribute code. Reporting a problem or suggesting an idea is always welcome.

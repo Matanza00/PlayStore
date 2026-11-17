@@ -323,8 +323,8 @@ npm run build`}</Code>
       <Section id="deploy" title="Deploy">
         <p>
           The project is linked to its GitHub repository on Vercel, so every push to <K>main</K> builds and deploys.
-          It runs at <K>fp.nxcsol.com</K>. To run your own copy, import the repository into Vercel, add the settings
-          above if you want them, and deploy.
+          It runs at <K>fp.nxcsol.com</K>. To run your own copy for noncommercial use, import the repository into Vercel, add the settings
+          above if you want them, and deploy. Offering a copy to others as a service needs a commercial licence.
         </p>
         <p>
           The rules reflect Google Play policy as read on 14 November 2026. The research behind them is in the{" "}
@@ -335,7 +335,7 @@ npm run build`}</Code>
 
       <Section id="contributing" title="Contributing">
         <p>
-          FirstPass is MIT-licensed and open to contributions from anyone. Fork the repository, make one focused
+          The FirstPass code is public and open to contributions from anyone, under a noncommercial licence (see the licence page). Fork the repository, make one focused
           change, run the three checks above, and open a pull request. Changes to rules must link to Google&rsquo;s own
           page and say when it was read.
         </p>

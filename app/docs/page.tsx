@@ -70,7 +70,7 @@ export default function DocsPage() {
         <Link href="/roadmap" className="link font-semibold text-ink">
           where FirstPass is going
         </Link>
-        . It is also open source.{" "}
+        . The code is public and open to contributions.{" "}
         <Link href="/contribute" className="link font-semibold text-ink">
           Here&rsquo;s how to contribute
         </Link>

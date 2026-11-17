@@ -4,7 +4,7 @@ import { Code, DocLayout, K, Note, Section, Table } from "@/components/Doc";
 
 export const metadata: Metadata = {
   title: "Contribute | FirstPass",
-  description: "FirstPass is open source and open to contributions from anyone. Here is how to help, with or without code.",
+  description: "The FirstPass code is public and open to contributions from anyone. Here is how to help, with or without code.",
 };
 
 const REPO = "https://github.com/Matanza00/PlayStore";
@@ -28,14 +28,14 @@ function Ext({ href, children, primary = false }: { href: string; children: Reac
 export default function ContributePage() {
   return (
     <DocLayout
-      eyebrow="Open source"
+      eyebrow="Contribute"
       title="Help build FirstPass"
       toc={toc}
       showFooter={false}
       back={{ href: "/", label: "Home" }}
       intro={
         <p>
-          FirstPass is open source and open to contributions from anyone. Google&rsquo;s rules change often, and many
+          The FirstPass code is public and open to contributions from anyone. Google&rsquo;s rules change often, and many
           people notice what is wrong before we do. If you know something we don&rsquo;t, you can help.
         </p>
       }
@@ -173,12 +173,13 @@ npm run build`}</Code>
 
       <Section id="licence" title="Licence">
         <p>
-          FirstPass is released under the{" "}
-          <a className="link font-semibold" href={`${REPO}/blob/main/LICENSE`} target="_blank" rel="noreferrer">
-            MIT licence
-          </a>
-          . By contributing, you agree that your contribution is licensed under the same terms, and that you have the
-          right to contribute it.
+          The code is released under the{" "}
+          <Link href="/licence" className="link font-semibold">
+            PolyForm Noncommercial licence
+          </Link>
+          : free to read, run and improve for noncommercial use, and not free to sell or offer as a service. By
+          contributing, you agree that your contribution is licensed under the same terms, that you have the right to
+          contribute it, and that the project owner may also license it commercially.
         </p>
         <div className="panel p-6">
           <h3 className="text-2xl font-extrabold">Ready?</h3>
