@@ -19,7 +19,12 @@ function Star({ filled }: { filled: boolean }) {
   );
 }
 
-export function FeedbackForm() {
+/**
+ * The feedback form. On its own page it fills the page; in the pop-up (onClose is set) it is compact, says which page
+ * you were on, and offers Close instead of a link back to the check.
+ */
+export function FeedbackForm({ from, onClose }: { from?: string; onClose?: () => void } = {}) {
+  const compact = !!onClose;
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
@@ -47,7 +52,7 @@ export function FeedbackForm() {
           message,
           email,
           website,
-          from: new URLSearchParams(window.location.search).get("from") ?? "",
+          from: from ?? new URLSearchParams(window.location.search).get("from") ?? "",
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -65,15 +70,21 @@ export function FeedbackForm() {
 
   if (state === "sent") {
     return (
-      <div className="panel mt-8 max-w-2xl p-6 md:p-8" role="status">
+      <div className={compact ? "mt-2" : "panel mt-8 max-w-2xl p-6 md:p-8"} role="status">
         <h2 className="text-3xl font-extrabold">Thank you. It reached the team.</h2>
         <p className="mt-3 text-lg text-muted">
           Every message is read. If you left an email address, you may get a reply from {SUPPORT}.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/check" className="btn btn-primary">
-            Back to the check
-          </Link>
+          {onClose ? (
+            <button type="button" className="btn btn-primary" onClick={onClose}>
+              Close
+            </button>
+          ) : (
+            <Link href="/check" className="btn btn-primary">
+              Back to the check
+            </Link>
+          )}
           <button
             type="button"
             className="btn"
@@ -91,7 +102,7 @@ export function FeedbackForm() {
   }
 
   return (
-    <form onSubmit={send} className="mt-8 max-w-2xl space-y-8" noValidate>
+    <form onSubmit={send} className={compact ? "mt-4 space-y-6" : "mt-8 max-w-2xl space-y-8"} noValidate>
       <fieldset>
         <legend>
           <span className="field-label">
@@ -176,7 +187,7 @@ export function FeedbackForm() {
         <button type="submit" className="btn btn-primary" disabled={state === "sending"}>
           {state === "sending" ? "Sending…" : "Send feedback"}
         </button>
-        <span className="text-sm text-muted">Goes straight to {SUPPORT}.</span>
+        <span className="text-sm text-muted">Goes straight to the team.</span>
       </div>
     </form>
   );

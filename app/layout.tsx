@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import Link from "next/link";
+import { Suspense } from "react";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -53,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             Play&rsquo;s published policies as read on 14 November 2026. Google&rsquo;s reviewers make the final
             decision, so treat the results as a thorough rehearsal, not a guarantee.
           </p>
-          <p className="mx-auto max-w-5xl px-5 pb-6 text-sm text-muted">
+          <p className="mx-auto max-w-5xl px-5 pb-20 text-sm text-muted">
             Made by{" "}
             <a href="https://nxcsol.com" className="link">
               NXCSOL
@@ -77,6 +79,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             .
           </p>
         </footer>
+        <Suspense fallback={null}>
+          <FeedbackButton />
+        </Suspense>
       </body>
     </html>
   );

@@ -263,3 +263,8 @@ li {
     animation: none !important;
   }
 }
+
+/* No scrolling the page behind an open pop-up. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
