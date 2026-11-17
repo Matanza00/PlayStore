@@ -336,6 +336,14 @@ function Results({
           </Link>
         </div>
       </section>
+
+      <p className="mt-10 text-center text-muted">
+        Did this miss something, or confuse you?{" "}
+        <Link href="/feedback?from=results" className="link font-semibold text-ink">
+          Tell us
+        </Link>
+        . FirstPass is free while it&rsquo;s in beta, and your feedback decides what gets built next.
+      </p>
     </div>
   );
 }

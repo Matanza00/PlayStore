@@ -37,6 +37,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/studio" className="link">
                 Store page studio
               </Link>
+              <Link href="/feedback" className="link">
+                Feedback
+              </Link>
             </nav>
           </div>
         </header>
@@ -46,6 +49,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             FirstPass is an independent tool and is not affiliated with Google. Its checks follow Google
             Play&rsquo;s published policies as read on 14 November 2026. Google&rsquo;s reviewers make the final
             decision, so treat the results as a thorough rehearsal, not a guarantee.
+          </p>
+          <p className="mx-auto max-w-5xl px-5 pb-6 text-sm text-muted">
+            Questions or ideas? <Link href="/feedback" className="link">Send feedback</Link> or write to{" "}
+            <a href="mailto:support@nxcsol.com" className="link">
+              support@nxcsol.com
+            </a>
+            .
           </p>
         </footer>
       </body>

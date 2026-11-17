@@ -36,6 +36,10 @@ Both are optional. The app works without any keys.
 
 Free-tier requests to Gemini may be used by Google to improve its products, so don't send anything confidential.
 
+## Feedback form
+
+`/feedback` emails what people type to `support@nxcsol.com` through [Resend](https://resend.com) (free tier). Set `RESEND_API_KEY` (and optionally `FEEDBACK_TO` and `FEEDBACK_FROM`, see `.env.example`) in Vercel, then redeploy. The sender address must be on a domain verified in Resend; `onboarding@resend.dev` works for testing only if the Resend account itself was created with the recipient's email. Without a key the form tells the visitor nothing was sent and offers a `mailto:` link, so a message is never reported as delivered when it wasn't. Only the typed message, the optional rating and email, and the page it came from are sent; the app answers and build report stay in the browser.
+
 ## Where the rules live
 
 | File | Contents |
