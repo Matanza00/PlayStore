@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BetaNames, BetaStrip } from "@/components/BetaStats";
 import { RejectionStory } from "@/components/RejectionStory";
 
 const samplePrompt = `I'm getting my Flutter Android app "Tiffin Tracker" ready for Google Play review. I'm not a developer, so please do the work and explain it simply.
@@ -24,6 +25,7 @@ export default function Home() {
             </Link>
             <span className="text-muted">About ten minutes. No sign-up, no upload.</span>
           </div>
+          <BetaStrip />
         </div>
 
         <div aria-label="Example of a result" className="md:rotate-1">
@@ -113,8 +115,13 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <BetaNames className="mt-6" />
           <p className="mt-5">
-            Would you use it for iOS too?{" "}
+            Tried it?{" "}
+            <Link href="/beta" className="link font-semibold">
+              Join the beta testers
+            </Link>
+            , anonymously or with your name. Would you use it for iOS too?{" "}
             <Link href="/feedback?from=ios" className="link font-semibold">
               Tell us
             </Link>

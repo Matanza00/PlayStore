@@ -42,8 +42,8 @@ export default function DevelopersPage() {
     >
       <Section id="overview" title="Overview">
         <p>
-          FirstPass is a Next.js app with no database and no accounts. The visitor&rsquo;s answers live in their
-          browser, the rules are plain TypeScript, and a handful of small API routes do the few things a browser
+          FirstPass is a Next.js app with no accounts and no database for answers. The visitor&rsquo;s answers live in
+          their browser, the rules are plain TypeScript, and a handful of small API routes do the few things a browser
           can&rsquo;t.
         </p>
         <Table
@@ -53,7 +53,7 @@ export default function DevelopersPage() {
             ["Language and styling", "TypeScript and Tailwind CSS 4, with design tokens in app/globals.css"],
             ["State", "Browser storage only, shared between pages with useSyncExternalStore"],
             ["Rules", "Pure functions over the answers: no network, so they run instantly and are easy to test"],
-            ["Free services", "Google Gemini (store page text), Pollinations (background pictures), Resend (feedback email)"],
+            ["Free services", "Google Gemini (store page text), Pollinations (background pictures), Resend (feedback email), Vercel Blob (beta sign-ups)"],
             ["Hosting", "Vercel, deployed from the main branch"],
           ]}
         />
@@ -92,6 +92,7 @@ npm run build`}</Code>
             [<K key="3">RESEND_API_KEY</K>, "For feedback", "Sends the feedback email. Without it, the form says nothing was sent and offers a mailto link."],
             [<K key="4">FEEDBACK_TO</K>, "Optional", "Where feedback is delivered. Defaults to support@nxcsol.com."],
             [<K key="5">FEEDBACK_FROM</K>, "Optional", "The sender, on a domain verified in Resend. Defaults to FirstPass <feedback@nxcsol.com>."],
+            [<K key="6">BLOB_READ_WRITE_TOKEN</K>, "For beta sign-ups", "Added automatically when a Vercel Blob store is connected to the project. Without it, the beta page says nothing was saved and the front page shows no count."],
           ]}
         />
         <p>
@@ -109,11 +110,12 @@ npm run build`}</Code>
             [<K key="3">lib/scan.ts</K>, "The build check prompt, the report type, and a forgiving parser for what people paste back."],
             [<K key="4">lib/listing.ts</K>, "Length limits and wording checks for the store title and descriptions."],
             [<K key="5">lib/client-info.ts</K>, "Reads IP, device and browser from request headers, for feedback emails."],
+            [<K key="12">lib/beta.ts</K>, "Beta tester sign-ups in a private Vercel Blob store: one small file per device, a cached count and the newest names."],
             [<K key="6">lib/feedback-email.ts</K>, "Builds the feedback email, as HTML and plain text, escaping everything typed by visitors."],
             [<K key="7">components/CheckFlow.tsx</K>, "The wizard and the results page."],
             [<K key="8">components/Studio.tsx</K>, "The store page studio: words, feature graphic, screenshots and icon, drawn on canvases."],
             [<K key="9">components/shared.tsx</K>, "The browser storage hook and small helpers."],
-            [<K key="10">app/api/*/route.ts</K>, "The four server routes. See the API reference below."],
+            [<K key="10">app/api/*/route.ts</K>, "The five server routes. See the API reference below."],
             [<K key="11">docs/</K>, "The Google Play policy research the rules are based on."],
           ]}
         />
@@ -218,7 +220,7 @@ npm run build`}</Code>
 
       <Section id="api" title="API reference">
         <p>
-          Four routes, all <K>POST</K> with a JSON body. They exist for the few things a browser can&rsquo;t do alone,
+          Five routes, all <K>POST</K> with a JSON body (<K>/api/beta</K> also accepts <K>DELETE</K>). They exist for the few things a browser can&rsquo;t do alone,
           and every one is optional to the main check.
         </p>
 
@@ -290,6 +292,34 @@ npm run build`}</Code>
             [<K key="3">429</K>, "More than five messages an hour from one visitor."],
             [<K key="4">501</K>, <>No Resend key is set (<K>{`{ "error": "not-configured" }`}</K>).</>],
             [<K key="5">502</K>, <>Resend refused or didn&rsquo;t answer (<K>{`{ "fallback": true }`}</K>).</>],
+          ]}
+        />
+
+        <Sub>
+          <K>POST /api/beta</K> and <K>DELETE /api/beta</K>
+        </Sub>
+        <p>
+          Counts someone as a beta tester, anonymously or with a name the site may show, and removes them again. Each
+          device is one small file in a private Vercel Blob store, named by a one-way code made from the IP address and
+          browser, so a person counts once and no address is stored.
+        </p>
+        <Code>{`// POST request
+{ "mode": "anonymous" | "named", "name": "Faraz" (only when mode is "named") }
+
+// POST response 200
+{ "ok": true, "named": true }
+
+// DELETE: no body. Removes this device from the list and the count.
+// DELETE response 200
+{ "ok": true }`}</Code>
+        <Table
+          head={["Status", "Meaning"]}
+          rows={[
+            [<K key="1">400</K>, "A named sign-up needs 2 to 30 letters (spaces, dots, hyphens and apostrophes are allowed, no links or numbers)."],
+            [<K key="2">413</K>, "The request body is over 2 KB."],
+            [<K key="3">429</K>, "More than five requests an hour from one visitor."],
+            [<K key="4">501</K>, <>No Blob store is connected (<K>{`{ "error": "not-configured" }`}</K>).</>],
+            [<K key="5">502</K>, "The store didn't answer."],
           ]}
         />
       </Section>

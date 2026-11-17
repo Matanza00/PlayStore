@@ -342,6 +342,10 @@ function Results({
         <Link href="/feedback?from=results" className="link font-semibold text-ink">
           Tell us
         </Link>
+        . Found it useful?{" "}
+        <Link href="/beta" className="link font-semibold text-ink">
+          Join the beta testers
+        </Link>
         . FirstPass is free while it&rsquo;s in beta, and your feedback decides what gets built next.
       </p>
     </div>

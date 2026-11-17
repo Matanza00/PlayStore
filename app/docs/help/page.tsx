@@ -287,7 +287,8 @@ export default function HelpPage() {
       <Section id="privacy" title="Your data">
         <p>
           Your answers and build report stay in your browser, saved on your own device. There is no account, and
-          nothing is stored on a FirstPass server. <strong>Start over</strong> on the results page clears them.
+          your answers are never stored on a FirstPass server. The only thing kept on the server is the optional beta
+          tester sign-up. <strong>Start over</strong> on the results page clears them.
         </p>
         <p>These are the only times something leaves your browser, and only what the feature needs:</p>
         <Table
@@ -296,6 +297,11 @@ export default function HelpPage() {
             ["The link check runs", "The privacy policy or deletion link you typed, and your app name.", "FirstPass, which then opens the link."],
             ["You press Draft my store page", "App name, your one-sentence description, features and kind of app.", "FirstPass, which asks Google's Gemini for a draft."],
             ["You press Make picture", "The few words you typed to describe the background.", "FirstPass, which asks the Pollinations image service."],
+            [
+              "You join the beta testers",
+              "Anonymous: a one-way code for your device, and the time. With your name: also the name you typed, which may be shown on the front page. No IP address is kept.",
+              "FirstPass, in a private store. You can remove yourself afterwards with the Remove me button.",
+            ],
             [
               "You send feedback",
               "Your message, optional rating and email, the page you were on, plus your IP address, device and browser.",
