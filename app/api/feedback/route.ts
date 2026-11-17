@@ -4,6 +4,7 @@
 // Without a key the form says so and offers a mailto link, so a message is never reported as sent when it wasn't.
 
 import { describeClient } from "@/lib/client-info";
+import { renderFeedbackEmail } from "@/lib/feedback-email";
 
 const TO = process.env.FEEDBACK_TO || "support@nxcsol.com";
 const FROM = process.env.FEEDBACK_FROM || "FirstPass <feedback@nxcsol.com>";
@@ -68,19 +69,7 @@ export async function POST(request: Request) {
         to: [TO],
         ...(email ? { reply_to: email } : {}),
         subject: `FirstPass feedback${rating ? ` (${rating}/5)` : ""}`,
-        text: [
-          `Rating: ${rating ? `${rating} of 5` : "not given"}`,
-          `Email: ${email || "not given"}`,
-          `Sent from: ${page || "the feedback page"}`,
-          `Time: ${new Date().toISOString()}`,
-          "",
-          `IP address: ${client.ip}`,
-          `Device: ${client.device} (${client.os})`,
-          `Browser: ${client.browser}`,
-          `User agent: ${client.agent}`,
-          "",
-          message,
-        ].join("\n"),
+        ...renderFeedbackEmail({ rating, message, email, page, time: new Date().toISOString(), client }),
       }),
     });
     if (!res.ok) {
