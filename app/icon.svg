@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>FirstPass</title>
+  <defs>
+    <pattern id="tape" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="16" height="16" fill="#ffd21f"/>
+      <rect width="8" height="16" fill="#101936"/>
+    </pattern>
+    <clipPath id="face"><rect x="2" y="2" width="60" height="60" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#face)">
+    <rect width="64" height="64" fill="#ffd21f"/>
+    <rect y="50" width="64" height="14" fill="url(#tape)"/>
+    <rect y="47" width="64" height="3" fill="#101936"/>
+  </g>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#101936" stroke-width="4"/>
+  <g fill="none" stroke="#101936" stroke-width="10" stroke-linejoin="miter">
+    <path d="M15 43V15H28M15 29H26"/>
+    <path d="M37 43V15H43a7 7 0 0 1 0 14H37"/>
+  </g>
+</svg>
