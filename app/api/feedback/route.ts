@@ -3,6 +3,8 @@
 // domain verified in Resend (or onboarding@resend.dev, which only delivers to the Resend account's own email).
 // Without a key the form says so and offers a mailto link, so a message is never reported as sent when it wasn't.
 
+import { describeClient } from "@/lib/client-info";
+
 const TO = process.env.FEEDBACK_TO || "support@nxcsol.com";
 const FROM = process.env.FEEDBACK_FROM || "FirstPass <feedback@nxcsol.com>";
 
@@ -52,7 +54,8 @@ export async function POST(request: Request) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return Response.json({ error: "not-configured" }, { status: 501 });
 
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown";
+  const client = describeClient(request.headers);
+  const ip = client.ip;
   if (limited(ip)) return Response.json({ error: "That's a lot of messages. Try again in an hour." }, { status: 429 });
 
   try {
@@ -70,6 +73,11 @@ export async function POST(request: Request) {
           `Email: ${email || "not given"}`,
           `Sent from: ${page || "the feedback page"}`,
           `Time: ${new Date().toISOString()}`,
+          "",
+          `IP address: ${client.ip}`,
+          `Device: ${client.device} (${client.os})`,
+          `Browser: ${client.browser}`,
+          `User agent: ${client.agent}`,
           "",
           message,
         ].join("\n"),
