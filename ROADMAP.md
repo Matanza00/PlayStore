@@ -1,8 +1,8 @@
 # FirstPass roadmap
 
-What FirstPass is for, what has shipped, and what comes next. It is a young project, and this page says so with real dates. The same list is on the website at [fp.nxcsol.com/roadmap](https://fp.nxcsol.com/roadmap).
+What FirstPass is for, what is being worked on now, and what comes next. The same list is on the website at [fp.nxcsol.com/roadmap](https://fp.nxcsol.com/roadmap).
 
-> **A plan, not a promise.** Items under Now, Next and Exploring have no dates on purpose. Plans change as people use the product and as Google changes its rules. Shipped items are what is already live.
+> **A plan, not a promise.** Nothing here has a date on purpose. Plans change as people use the product and as Google changes its rules.
 
 ## Goals
 
@@ -11,19 +11,7 @@ What FirstPass is for, what has shipped, and what comes next. It is a young proj
 - **Always sourced.** Every finding links to Google's own page, and says when that page was read. A rule without a source can't be trusted.
 - **Honest about its limits.** FirstPass is a rehearsal, not a guarantee. It says what it covers and what it doesn't.
 - **Private by default.** Answers stay in your browser. There is no account, and FirstPass never asks for your Play Console login or your app bundle.
-- **Free to try, open to everyone.** Free while it is in beta, MIT-licensed, and open to contributions with or without code.
-
-## Shipped
-
-| Date | What |
-|---|---|
-| 14 November 2026 | **Google Play policy research.** A full report and seven topic notes on Google Play's rules, which every check is based on. |
-| 14 November 2026 | **Check my app.** Five plain-language steps, about 40 checks, and a fix prompt for each finding that you can paste into your AI coding tool. |
-| 14 November 2026 | **Build check.** One prompt for the AI tool that built your app. Paste its report back and FirstPass checks the code too: target API level, permissions, payment library and 16 KB memory pages. |
-| 14 November 2026 | **Link check and Store page studio.** Privacy policy and account deletion links opened the way a reviewer would, plus tools for store text, the feature graphic, screenshots and the icon. |
-| 17 November 2026 | **Feedback, docs and a tutorial video.** A feedback form that reaches the team, a help guide and a developer guide, and a 56-second walkthrough of the whole check. |
-| 17 November 2026 | **Open source.** MIT licence, a contributing guide, issue templates and a contribute page. |
-| 17 November 2026 | **This roadmap.** |
+- **Free to try, open to everyone.** Free while it is in beta. The code is public under a noncommercial licence, and contributions are welcome with or without code.
 
 ## Now
 

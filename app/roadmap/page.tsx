@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DocLayout, Note, Section } from "@/components/Doc";
-import { exploring, goals, next, now, shipped, wontDo, type Item } from "@/lib/roadmap";
+import { exploring, goals, next, now, wontDo, type Item } from "@/lib/roadmap";
 
 export const metadata: Metadata = {
   title: "Roadmap | FirstPass",
-  description: "What FirstPass is for, what has shipped, what is next, and what is being explored.",
+  description: "What FirstPass is for, what is being worked on, what is planned next, and what is being explored.",
 };
 
 const REPO = "https://github.com/Matanza00/PlayStore";
 
 const toc = [
   { id: "goals", label: "Goals" },
-  { id: "shipped", label: "Shipped" },
   { id: "now", label: "Now" },
   { id: "next", label: "Next" },
   { id: "exploring", label: "Exploring" },
@@ -46,16 +45,14 @@ export default function RoadmapPage() {
       back={{ href: "/", label: "Home" }}
       intro={
         <p>
-          What FirstPass is for, what has shipped, and what comes next. It is a young project, and this page says so
-          with real dates.
+          What FirstPass is for, what is being worked on now, and what comes next.
         </p>
       }
     >
       <div className="mt-6">
         <Note title="A plan, not a promise" tone="warn">
           <p>
-            Items under Now, Next and Exploring have no dates on purpose. Plans change as people use the product and as
-            Google changes its rules. Shipped items are what is already live.
+            Nothing here has a date on purpose. Plans change as people use the product and as Google changes its rules.
           </p>
         </Note>
       </div>
@@ -67,21 +64,6 @@ export default function RoadmapPage() {
             <li key={g.title}>
               <h3 className="text-xl font-bold">{g.title}</h3>
               <p className="mt-1 text-base text-muted">{g.body}</p>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section id="shipped" title="Shipped">
-        <p>Everything here is live today, with the day it went out.</p>
-        <ul className="!list-none !space-y-0 !pl-0 divide-y-2 divide-line rounded-2xl border-2 border-line bg-surface">
-          {shipped.map((s) => (
-            <li key={s.title} className="grid gap-1 p-5 md:grid-cols-[10.5rem_1fr] md:gap-6">
-              <p className="font-semibold tabular-nums text-muted">{s.date}</p>
-              <div>
-                <h3 className="text-xl font-bold">{s.title}</h3>
-                <p className="mt-1 text-base text-muted">{s.body}</p>
-              </div>
             </li>
           ))}
         </ul>

@@ -1,9 +1,7 @@
 // The roadmap, as data, so the page reads from one place. ROADMAP.md in the repository says the same thing in prose:
-// keep the two in step. Shipped items carry the real dates from the commit history. Everything else is a plan, not a promise,
-// so it carries no dates.
+// keep the two in step. It looks forward only, and every item is a plan, not a promise, so none of it carries a date.
 
 export type Item = { title: string; body: string };
-export type Shipped = Item & { date: string };
 
 export const goals: Item[] = [
   {
@@ -28,45 +26,7 @@ export const goals: Item[] = [
   },
   {
     title: "Free to try, open to everyone",
-    body: "Free while it is in beta, MIT-licensed, and open to contributions with or without code.",
-  },
-];
-
-export const shipped: Shipped[] = [
-  {
-    date: "14 November 2026",
-    title: "Google Play policy research",
-    body: "A full report and seven topic notes on Google Play's rules, which every check is based on.",
-  },
-  {
-    date: "14 November 2026",
-    title: "Check my app",
-    body: "Five plain-language steps, about 40 checks, and a fix prompt for each finding that you can paste into your AI coding tool.",
-  },
-  {
-    date: "14 November 2026",
-    title: "Build check",
-    body: "One prompt for the AI tool that built your app. Paste its report back and FirstPass checks the code too: target API level, permissions, payment library and 16 KB memory pages.",
-  },
-  {
-    date: "14 November 2026",
-    title: "Link check and Store page studio",
-    body: "Privacy policy and account deletion links opened the way a reviewer would, plus tools for store text, the feature graphic, screenshots and the icon.",
-  },
-  {
-    date: "17 November 2026",
-    title: "Feedback, docs and a tutorial video",
-    body: "A feedback form that reaches the team, a help guide and a developer guide, and a 56-second walkthrough of the whole check.",
-  },
-  {
-    date: "17 November 2026",
-    title: "Open source",
-    body: "MIT licence, a contributing guide, issue templates and a contribute page. The code is public and anyone can send a change.",
-  },
-  {
-    date: "17 November 2026",
-    title: "This roadmap",
-    body: "Where FirstPass is going, and how the list gets decided.",
+    body: "Free while it is in beta. The code is public under a noncommercial licence, and contributions are welcome with or without code.",
   },
 ];
 
