@@ -37,6 +37,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/studio" className="link">
                 Store page studio
               </Link>
+              <Link href="/docs" className="link">
+                Docs
+              </Link>
               <Link href="/feedback" className="link">
                 Feedback
               </Link>
@@ -55,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href="https://nxcsol.com" className="link">
               NXCSOL
             </a>
-            . Questions or ideas? <Link href="/feedback" className="link">Send feedback</Link> or write to{" "}
+            . <Link href="/docs" className="link">Docs</Link>. Questions or ideas? <Link href="/feedback" className="link">Send feedback</Link> or write to{" "}
             <a href="mailto:support@nxcsol.com" className="link">
               support@nxcsol.com
             </a>
