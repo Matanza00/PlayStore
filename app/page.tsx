@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RejectionStory } from "@/components/RejectionStory";
 
 const samplePrompt = `I'm getting my Flutter Android app "Tiffin Tracker" ready for Google Play review. I'm not a developer, so please do the work and explain it simply.
 
@@ -80,34 +81,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y-2 border-line bg-surface">
-        <div className="mx-auto max-w-5xl px-5 py-14">
-          <h2 className="max-w-2xl text-3xl font-extrabold md:text-4xl">Why apps get stuck in review for weeks</h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            <div>
-              <h3 className="text-xl font-bold">A rejection lists one problem, not all of them</h3>
-              <p className="mt-2 text-muted">
-                Google&rsquo;s own enforcement page says a notice doesn&rsquo;t have to name every violation. You fix
-                one, wait, and meet the next.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">Every resubmission starts the clock again</h3>
-              <p className="mt-2 text-muted">
-                Each review can take up to seven days or longer. There is no fast lane and no way to see what is
-                coming.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold">The cause is often something you never wrote</h3>
-              <p className="mt-2 text-muted">
-                Packages inside your app quietly add permissions and collect data. Google holds you responsible for
-                all of it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RejectionStory />
 
       <section className="mx-auto grid max-w-5xl gap-10 px-5 py-14 md:grid-cols-2 md:gap-14">
         <div>
