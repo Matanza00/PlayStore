@@ -13,7 +13,7 @@ FirstPass is open to contributions from anyone. You don't need to be a developer
 | Fix a bug or build a feature | Send a pull request (see below). |
 | Say you want iOS support | Use the [feedback form](https://fp.nxcsol.com/feedback) or open an idea. |
 
-Not sure where to start? Look for issues labelled `good first issue`, or read the [developer guide](https://fp.nxcsol.com/docs/developers).
+Not sure where to start? Look for issues labelled `good first issue`, check the [roadmap](ROADMAP.md) for what is planned, or read the [developer guide](https://fp.nxcsol.com/docs/developers).
 
 ## Send a pull request
 

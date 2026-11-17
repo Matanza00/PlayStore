@@ -96,6 +96,13 @@ export default function ContributePage() {
             . It takes two minutes.
           </li>
           <li>
+            Looking for something to work on? The{" "}
+            <Link href="/roadmap" className="link font-semibold">
+              roadmap
+            </Link>{" "}
+            lists what is planned and what is being explored.
+          </li>
+          <li>
             Spotted a typo or a confusing sentence? Every page can be fixed with a small pull request, and GitHub
             lets you edit a file right in the browser.
           </li>

@@ -13,6 +13,8 @@ Google's rejection notices don't have to list every problem, and each resubmissi
 
 Answers are stored in the visitor's browser only.
 
+Live at [fp.nxcsol.com](https://fp.nxcsol.com). Where it is going: [ROADMAP.md](ROADMAP.md).
+
 ## Run it
 
 ```bash
@@ -61,6 +63,7 @@ FirstPass is a rehearsal, not a guarantee. It relies on honest answers and on th
 FirstPass is open to contributions from anyone, with or without code. Google's rules change often, and reports of rules that are wrong or out of date are some of the most useful contributions.
 
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide, or the [contribute page](https://fp.nxcsol.com/contribute).
+- See the [roadmap](ROADMAP.md) for what is planned and what is being explored.
 - Found a bug, a missing check or an out-of-date rule? [Open an issue](../../issues/new/choose).
 - Want to change something? Fork, make one focused change, run `npx tsc --noEmit`, `npx eslint app lib components` and `npm run build`, then open a pull request.
 - Changes to rules must link to Google's own page and say when it was read.

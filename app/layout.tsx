@@ -58,7 +58,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href="https://nxcsol.com" className="link">
               NXCSOL
             </a>
-            . FirstPass is open source: read the <Link href="/docs" className="link">docs</Link> or{" "}
+            . FirstPass is open source: read the <Link href="/docs" className="link">docs</Link>, see the{" "}
+            <Link href="/roadmap" className="link">
+              roadmap
+            </Link>{" "}
+            or{" "}
             <Link href="/contribute" className="link">
               help build it
             </Link>

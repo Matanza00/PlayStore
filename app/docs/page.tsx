@@ -66,7 +66,11 @@ export default function DocsPage() {
         ))}
       </div>
       <p className="mt-10 text-lg text-muted">
-        FirstPass is open source.{" "}
+        See{" "}
+        <Link href="/roadmap" className="link font-semibold text-ink">
+          where FirstPass is going
+        </Link>
+        . It is also open source.{" "}
         <Link href="/contribute" className="link font-semibold text-ink">
           Here&rsquo;s how to contribute
         </Link>
