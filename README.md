@@ -55,3 +55,16 @@ Google changes its policies several times a year. Before changing a number in `l
 ## Limits
 
 FirstPass is a rehearsal, not a guarantee. It relies on honest answers and on the AI tool's report of the build; it does not install or run the app. Checks that need a real device (does the reviewer login work, does the app crash) and judgement calls (impersonation, misleading claims) are flagged as steps for the user, not verified. FirstPass is not affiliated with Google.
+
+## Contributing
+
+FirstPass is open to contributions from anyone, with or without code. Google's rules change often, and reports of rules that are wrong or out of date are some of the most useful contributions.
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide, or the [contribute page](https://fp.nxcsol.com/contribute).
+- Found a bug, a missing check or an out-of-date rule? [Open an issue](../../issues/new/choose).
+- Want to change something? Fork, make one focused change, run `npx tsc --noEmit`, `npx eslint app lib components` and `npm run build`, then open a pull request.
+- Changes to rules must link to Google's own page and say when it was read.
+
+## Licence
+
+[MIT](LICENSE). Copyright (c) 2026 Usman Nadeem.

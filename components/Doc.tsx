@@ -10,18 +10,24 @@ export function DocLayout({
   intro,
   toc,
   children,
+  showFooter = true,
+  back = { href: "/docs", label: "All docs" },
 }: {
   eyebrow: string;
   title: string;
   intro: React.ReactNode;
   toc: TocItem[];
   children: React.ReactNode;
+  /** The "Something missing or wrong?" box at the end. Off for pages that have their own closing call to action. */
+  showFooter?: boolean;
+  /** The link at the top of the contents list. Goes to the docs hub unless the page says otherwise. */
+  back?: { href: string; label: string };
 }) {
   return (
     <div className="mx-auto grid max-w-5xl gap-8 px-5 py-8 md:grid-cols-[14rem_1fr] md:gap-12 md:py-12">
       <nav aria-label="On this page" className="min-w-0 md:sticky md:top-6 md:self-start">
-        <Link href="/docs" className="link text-sm font-semibold">
-          &larr; All docs
+        <Link href={back.href} className="link text-sm font-semibold">
+          &larr; {back.label}
         </Link>
         <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-muted">On this page</p>
         <ol className="mt-2 flex flex-wrap gap-x-1 gap-y-0.5 md:block md:space-y-1">
@@ -39,15 +45,17 @@ export function DocLayout({
         <h1 className="mt-2 text-4xl font-extrabold md:text-6xl">{title}</h1>
         <div className="mt-4 text-xl text-muted">{intro}</div>
         {children}
-        <div className="panel mt-16 p-6">
-          <h2 className="text-2xl font-extrabold">Something missing or wrong?</h2>
-          <p className="mt-2 text-lg text-muted">
-            These docs follow the app as it works today. If a step doesn&rsquo;t match what you see, tell us.
-          </p>
-          <Link href="/feedback?from=docs" className="btn btn-primary mt-4">
-            Send feedback
-          </Link>
-        </div>
+        {showFooter ? (
+          <div className="panel mt-16 p-6">
+            <h2 className="text-2xl font-extrabold">Something missing or wrong?</h2>
+            <p className="mt-2 text-lg text-muted">
+              These docs follow the app as it works today. If a step doesn&rsquo;t match what you see, tell us.
+            </p>
+            <Link href="/feedback?from=docs" className="btn btn-primary mt-4">
+              Send feedback
+            </Link>
+          </div>
+        ) : null}
       </article>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Code, DocLayout, K, Note, Section, Sub, Table } from "@/components/Doc";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ const toc = [
   { id: "api", label: "API reference" },
   { id: "security", label: "Security notes" },
   { id: "deploy", label: "Deploy" },
+  { id: "contributing", label: "Contributing" },
 ];
 
 const REPO = "https://github.com/Matanza00/PlayStore";
@@ -329,6 +331,34 @@ npm run build`}</Code>
           <K>docs/</K> folder of the repository, and every finding links to Google&rsquo;s own page so it can be
           re-checked.
         </p>
+      </Section>
+
+      <Section id="contributing" title="Contributing">
+        <p>
+          FirstPass is MIT-licensed and open to contributions from anyone. Fork the repository, make one focused
+          change, run the three checks above, and open a pull request. Changes to rules must link to Google&rsquo;s own
+          page and say when it was read.
+        </p>
+        <ul>
+          <li>
+            <a className="link font-semibold" href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noreferrer">
+              CONTRIBUTING.md
+            </a>{" "}
+            has the full guide.
+          </li>
+          <li>
+            <Link className="link font-semibold" href="/contribute">
+              The contribute page
+            </Link>{" "}
+            explains it for people who don&rsquo;t write code.
+          </li>
+          <li>
+            <a className="link font-semibold" href={`${REPO}/issues/new/choose`} target="_blank" rel="noreferrer">
+              Open an issue
+            </a>{" "}
+            for a bug, an idea, or a rule that is out of date.
+          </li>
+        </ul>
       </Section>
     </DocLayout>
   );

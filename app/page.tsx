@@ -174,6 +174,28 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <section className="border-t-2 border-line bg-surface">
+        <div className="mx-auto grid max-w-5xl items-center gap-6 px-5 py-12 md:grid-cols-[1.4fr_1fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-muted">Open source</p>
+            <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">Open to contributions from anyone</h2>
+            <p className="mt-3 max-w-xl text-lg text-muted">
+              Google&rsquo;s rules keep changing, and the people who just went through a rejection know what&rsquo;s
+              missing. Report a rule that&rsquo;s wrong, suggest a check, or send a fix. You don&rsquo;t need to be a
+              developer to help.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 md:justify-end">
+            <Link href="/contribute" className="btn btn-primary">
+              How to contribute
+            </Link>
+            <a className="btn" href="https://github.com/Matanza00/PlayStore" target="_blank" rel="noreferrer">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
