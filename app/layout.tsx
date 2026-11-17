@@ -51,7 +51,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             decision, so treat the results as a thorough rehearsal, not a guarantee.
           </p>
           <p className="mx-auto max-w-5xl px-5 pb-6 text-sm text-muted">
-            Questions or ideas? <Link href="/feedback" className="link">Send feedback</Link> or write to{" "}
+            Made by{" "}
+            <a href="https://nxcsol.com" className="link">
+              NXCSOL
+            </a>
+            . Questions or ideas? <Link href="/feedback" className="link">Send feedback</Link> or write to{" "}
             <a href="mailto:support@nxcsol.com" className="link">
               support@nxcsol.com
             </a>

@@ -49,6 +49,37 @@ export default function Home() {
         </div>
       </section>
 
+      <section aria-labelledby="watch" className="mx-auto max-w-5xl px-5 pb-14 md:pb-20">
+        <div className="grid items-center gap-8 md:grid-cols-[1fr_1.9fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-muted">Watch it work</p>
+            <h2 id="watch" className="mt-2 text-3xl font-extrabold md:text-4xl">
+              The whole check, in under a minute
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              A made-up app, Tiffin Tracker, goes through the questions, the build check and the results. It ends with
+              16 problems found before Google ever sees it, each with a fix prompt.
+            </p>
+            <p className="mt-3 text-sm text-muted">There is no voice-over. Unmute it for the music.</p>
+          </div>
+          <div className="overflow-hidden rounded-[22px] border-[3px] border-ink bg-ink shadow-[10px_10px_0_rgb(16_25_54/0.14)]">
+            <div className="tape h-4 border-b-[3px] border-ink" />
+            <video
+              className="block aspect-video w-full bg-ink"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/firstpass-tutorial-poster.jpg"
+              aria-describedby="watch"
+            >
+              <source src="/firstpass-tutorial.mp4" type="video/mp4" />
+              Your browser can&rsquo;t play this video. The steps are: answer plain questions, run the build check,
+              then see every problem at once with a fix prompt for each.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y-2 border-line bg-surface">
         <div className="mx-auto max-w-5xl px-5 py-14">
           <h2 className="max-w-2xl text-3xl font-extrabold md:text-4xl">Why apps get stuck in review for weeks</h2>
@@ -78,7 +109,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 py-14">
+      <section className="mx-auto grid max-w-5xl gap-10 px-5 py-14 md:grid-cols-2 md:gap-14">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.14em] text-muted">Why this exists</p>
+          <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">Every flag cost days of waiting</h2>
+          <p className="mt-4 text-lg text-muted">
+            FirstPass started with a frustration: Android apps that waited three to seven days for each review, and
+            came back with a different problem every time. None of it was something an AI coding tool had mentioned
+            while it wrote the app.
+          </p>
+          <p className="mt-3 text-lg text-muted">
+            So the checks that used to take a week of resubmitting now fit into one sitting, in plain words.
+          </p>
+        </div>
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.14em] text-muted">From the first testers</p>
+          <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">They loved it. Then they asked for iOS.</h2>
+          <p className="mt-4 text-lg text-muted">
+            Carlson, Jenny and Faraz tried the beta. All three said they loved the software, and all three said they
+            would like to see it in production, with iOS deployment too.
+          </p>
+          <ul className="mt-5 flex flex-wrap gap-3" aria-label="Early testers">
+            {["Carlson", "Jenny", "Faraz"].map((name) => (
+              <li key={name} className="flex items-center gap-2 rounded-full border-2 border-ink bg-surface py-1 pl-1 pr-4 font-bold">
+                <span aria-hidden className="grid h-8 w-8 place-content-center rounded-full bg-hivis font-display text-base font-extrabold">
+                  {name[0]}
+                </span>
+                {name}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5">
+            Would you use it for iOS too?{" "}
+            <Link href="/feedback?from=ios" className="link font-semibold">
+              Tell us
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 pb-14">
         <h2 className="text-3xl font-extrabold md:text-4xl">How it works</h2>
         <ol className="mt-8 grid gap-6 md:grid-cols-4">
           {[
